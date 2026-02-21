@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Forex Trading for Beginners in India (2026) — Learn the Basics Safely</title>
+  <meta name="description" content="Beginner-friendly forex guide for India: how it works, key terms, risk management, and demo practice. Educational only." />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Note: Add your GA4 script here later (before closing </head>) -->
+
+  <style>
+    :root{
+      --bg:#070b18;
+      --surface: rgba(255,255,255,.06);
+      --surface2: rgba(255,255,255,.04);
+      --border: rgba(255,255,255,.10);
+      --text:#eef2ff;
+      --muted:#b6c1e2;
+      --accent:#6ee7ff;
+      --accent2:#22c55e;
+      --warn:#fbbf24;
+      --shadow: 0 20px 80px rgba(0,0,0,.55);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", Helvetica, sans-serif;
+      color:var(--text);
+      line-height:1.7;
+      background:
+        radial-gradient(900px 500px at 15% 0%, rgba(110,231,255,.18), rgba(7,11,24,0) 60%),
+        radial-gradient(900px 500px at 85% 10%, rgba(34,197,94,.16), rgba(7,11,24,0) 60%),
+        linear-gradient(180deg, #060918 0%, #070b18 60%, #050712 100%);
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1100px; margin:0 auto; padding:22px}
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px; padding:12px 0 18px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      font-weight:800; letter-spacing:.2px;
+    }
+    .mark{
+      width:38px; height:38px; border-radius:12px;
+      background: linear-gradient(135deg, rgba(110,231,255,1), rgba(124,58,237,1));
+      box-shadow: 0 14px 40px rgba(110,231,255,.18);
+    }
+    .brand small{display:block; font-weight:600; color:var(--muted); margin-top:2px}
+    .nav{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
+    .chip{
+      font-size:13px; color:var(--muted);
+      padding:8px 10px; border:1px solid var(--border);
+      border-radius:999px; background: rgba(255,255,255,.03);
+    }
+
+    .hero{
+      display:grid; grid-template-columns: 1.1fr .9fr;
+      gap:16px; align-items:stretch;
+    }
+    .card{
+      background: var(--surface);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:18px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+    h1{margin:0 0 10px; font-size:34px; line-height:1.2}
+    h2{margin:0 0 10px; font-size:22px}
+    h3{margin:0 0 8px; font-size:18px}
+    p{margin:0 0 10px}
+    .muted{color:var(--muted)}
+    .risk{
+      border-left:4px solid var(--warn);
+      background: rgba(251,191,36,.10);
+      border-radius:14px;
+      padding:12px 12px 12px 14px;
+      color:#ffe9ad;
+      margin:14px 0 0;
+    }
+    .ctaRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      color:var(--text);
+      font-weight:800;
+      min-width: 190px;
+    }
+    .btnPrimary{
+      background: linear-gradient(135deg, rgba(34,197,94,1), rgba(16,185,129,1));
+      border-color: rgba(34,197,94,.35);
+      color:#06210f;
+    }
+    .btn:hover{transform: translateY(-1px); transition: .15s ease}
+    .list{margin:0; padding-left:18px; color:var(--muted)}
+    .list li{margin:6px 0}
+    .grid3{display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; margin-top:12px}
+    .mini{padding:14px; border-radius:16px; border:1px solid var(--border); background: rgba(255,255,255,.03)}
+    .divider{height:1px; background: var(--border); margin:16px 0}
+    footer{padding:22px 0 30px}
+    .footLinks{display:flex; gap:12px; flex-wrap:wrap}
+    .small{font-size:13px; color:var(--muted)}
+    .note{
+      background: rgba(110,231,255,.08);
+      border:1px solid rgba(110,231,255,.22);
+      border-radius:14px;
+      padding:12px;
+      color:#dbeafe;
+      margin-top:12px;
+    }
+    .subtle{
+      padding:10px 12px;
+      border:1px solid var(--border);
+      border-radius:14px;
+      background: rgba(255,255,255,.03);
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    /* Hero image */
+    .heroImage{
+      border-radius:16px;
+      border:1px solid var(--border);
+      background: var(--surface2);
+      overflow:hidden;
+      height: 220px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .heroImage img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .imgCaption{
+      margin-top:10px;
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    /* Keyword chips */
+    .kwWrap{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+    .kw{
+      font-size:13px;
+      color:var(--muted);
+      padding:8px 10px;
+      border:1px dashed rgba(255,255,255,.18);
+      border-radius:999px;
+      background: rgba(255,255,255,.02);
+    }
+
+    @media (max-width: 920px){
+      .hero{grid-template-columns:1fr}
+      h1{font-size:28px}
+      .grid3{grid-template-columns:1fr}
+      .btn{min-width: 160px}
+      .heroImage{height: 200px;}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- TOP -->
+    <div class="topbar">
+      <div class="brand">
+        <div class="mark" aria-hidden="true"></div>
+        <div>
+          <div>ForexBasics India</div>
+          <small>Educational • Risk-aware • 2026</small>
+        </div>
+      </div>
+
+      <div class="nav">
+        <a class="chip" href="#learn">Learn</a>
+        <a class="chip" href="#steps">How to Start</a>
+        <a class="chip" href="#india">India Keywords</a>
+        <a class="chip" href="#faq">FAQ</a>
+        <a class="chip" href="#policies">Policies</a>
+        <a class="chip" href="#contact">Contact</a>
+      </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="card">
+        <h1>Forex Trading for Beginners in India (2026)</h1>
+        <p class="muted">
+          A simple guide to understand forex basics: currency pairs, spreads, leverage, and beginner risk rules.
+          Start by learning first and practicing with a demo account.
+        </p>
+
+        <div class="risk">
+          <strong>Risk Warning:</strong> Forex/CFD trading involves risk and may result in the loss of your capital.
+          This page is educational and does not provide financial advice. We do not guarantee profits or results.
+        </div>
+
+        <div class="ctaRow">
+          <a class="btn btnPrimary"
+             href="https://track.deriv.be/_DnTT5wlXlxM5TVC3w-F7AGNd7ZgqdRLk/1/"
+             target="_blank"
+             rel="nofollow noopener">
+             Visit Official Platform
+          </a>
+          <a class="btn" href="#steps">Start with Demo Steps</a>
+        </div>
+
+        <p class="small" style="margin-top:10px;">
+          Affiliate disclosure: We may earn a commission if you sign up through our link — at no extra cost to you.
+        </p>
+
+        <div class="subtle" style="margin-top:12px;">
+          Beginner tip: Focus on learning + demo practice. Avoid high leverage until you fully understand risk.
+        </div>
+      </div>
+
+      <aside class="card">
+        <h2>Visual Overview</h2>
+
+        <!-- Put your generated image at: assets/img/forex-hero.jpg -->
+        <div class="heroImage">
+          <img src="assets/img/forex-hero.jpg" alt="Forex education illustration for beginners" loading="lazy">
+        </div>
+        <div class="imgCaption">
+          Image path: <code style="color:#c7d2fe;">assets/img/forex-hero.jpg</code> (We’ll generate this next.)
+        </div>
+
+        <div class="divider"></div>
+
+        <h3>Quick Checklist</h3>
+        <ul class="list">
+          <li>I understand basic terms (pair, spread, pip)</li>
+          <li>I will practice on a demo account first</li>
+          <li>I will use stop-loss and manage risk</li>
+          <li>I will avoid “guaranteed profit” claims</li>
+          <li>I only use money I can afford to lose</li>
+        </ul>
+
+        <div class="note">
+          <strong>Ads-friendly structure:</strong> Educational content + clear risk warning + policies + contact info
+          is generally safer than direct affiliate redirects.
+        </div>
+      </aside>
+    </section>
+
+    <!-- LEARN -->
+    <section id="learn" class="card" style="margin-top:16px;">
+      <h2>How Forex Works (Simple Explanation)</h2>
+      <p class="muted">
+        Forex (foreign exchange) is where currencies are traded in pairs (example: EUR/USD).
+        A price change reflects how one currency strengthens or weakens relative to another.
+      </p>
+
+      <div class="grid3">
+        <div class="mini">
+          <h3>1) Currency Pairs</h3>
+          <p class="muted small">
+            Example: EUR/USD shows the value of 1 EUR in USD. If the rate rises, EUR strengthened vs USD.
+          </p>
+        </div>
+        <div class="mini">
+          <h3>2) Spread</h3>
+          <p class="muted small">
+            Spread is the difference between buy and sell prices. Lower spreads can reduce trading costs.
+          </p>
+        </div>
+        <div class="mini">
+          <h3>3) Leverage</h3>
+          <p class="muted small">
+            Leverage can amplify gains and losses. Beginners should keep leverage low or avoid it until trained.
+          </p>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <h3>Beginner Safety Rules</h3>
+      <ul class="list">
+        <li>Practice on a demo account for 1–2 weeks</li>
+        <li>Always set a stop loss</li>
+        <li>Avoid overtrading (too many trades per day)</li>
+        <li>Be careful during major news events (high volatility)</li>
+        <li>Ignore anyone promising guaranteed returns</li>
+      </ul>
+
+      <div class="ctaRow" style="margin-top:14px;">
+        <a class="btn btnPrimary"
+           href="https://track.deriv.be/_DnTT5wlXlxM5TVC3w-F7AGNd7ZgqdRLk/1/"
+           target="_blank"
+           rel="nofollow noopener">
+           Try Demo / Official Platform
+        </a>
+        <a class="btn" href="#india">India Keywords</a>
+      </div>
+    </section>
+
+    <!-- STEPS -->
+    <section id="steps" class="card" style="margin-top:16px;">
+      <h2>How to Start (Step-by-Step)</h2>
+
+      <h3>Step 1 — Learn the basics (30–60 min)</h3>
+      <ul class="list">
+        <li>Pairs, spread, pip, leverage</li>
+        <li>Risk basics: position sizing, stop loss</li>
+      </ul>
+
+      <h3>Step 2 — Practice on a demo account</h3>
+      <ul class="list">
+        <li>Place 10–20 demo trades</li>
+        <li>Test one simple approach (trend + support/resistance)</li>
+        <li>Record results in a journal</li>
+      </ul>
+
+      <h3>Step 3 — Go small (only if you choose)</h3>
+      <ul class="list">
+        <li>Start small to learn, not to “get rich fast”</li>
+        <li>Keep risk per trade low (e.g., 1% or less)</li>
+        <li>Stay consistent and avoid emotional decisions</li>
+      </ul>
+
+      <div class="divider"></div>
+      <div class="ctaRow">
+        <a class="btn btnPrimary"
+           href="https://track.deriv.be/_DnTT5wlXlxM5TVC3w-F7AGNd7ZgqdRLk/1/"
+           target="_blank"
+           rel="nofollow noopener">
+           Open Demo / Official Platform
+        </a>
+        <a class="btn" href="#policies">Policies</a>
+      </div>
+
+      <p class="small" style="margin-top:10px;">
+        Reminder: This is educational content. If you decide to trade, use strict risk management.
+      </p>
+    </section>
+
+    <!-- INDIA KEYWORDS -->
+    <section id="india" class="card" style="margin-top:16px;">
+      <h2>India-Specific Keyword Ideas (Educational Intent)</h2>
+      <p class="muted">
+        These are informational keyword themes that typically align better with education-focused ads and content.
+        Avoid “profit” or “guaranteed returns” wording.
+      </p>
+
+      <div class="kwWrap" aria-label="India keyword ideas">
+        <span class="kw">forex trading for beginners in india</span>
+        <span class="kw">what is forex trading</span>
+        <span class="kw">how forex trading works</span>
+        <span class="kw">forex demo account</span>
+        <span class="kw">pip meaning in forex</span>
+        <span class="kw">spread in forex explained</span>
+        <span class="kw">stop loss meaning</span>
+        <span class="kw">risk management in forex</span>
+        <span class="kw">forex basics for students</span>
+        <span class="kw">currency pairs explained</span>
+      </div>
+
+      <div class="divider"></div>
+
+      <h3>Suggested Negative Keywords (to reduce policy risk)</h3>
+      <p class="muted small">
+        Add these as negative keywords in Google Ads to avoid low-quality or risky traffic:
+      </p>
+      <div class="kwWrap" aria-label="Negative keywords">
+        <span class="kw">guaranteed profit</span>
+        <span class="kw">get rich quick</span>
+        <span class="kw">easy money</span>
+        <span class="kw">daily income</span>
+        <span class="kw">signal</span>
+        <span class="kw">tips</span>
+        <span class="kw">sure shot</span>
+        <span class="kw">100% win</span>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="card" style="margin-top:16px;">
+      <h2>FAQ</h2>
+
+      <h3>Is forex trading safe for beginners?</h3>
+      <p class="muted">
+        It can be risky, especially with leverage. Start with education, use a demo account, and follow strict risk rules.
+      </p>
+
+      <h3>Can anyone guarantee daily profits?</h3>
+      <p class="muted">
+        No. Legitimate platforms do not guarantee profits. Avoid anyone making guaranteed-return promises.
+      </p>
+
+      <h3>What’s the best time to trade?</h3>
+      <p class="muted">
+        Liquidity is often higher during London and New York sessions, but volatility may also be higher.
+      </p>
+    </section>
+
+    <!-- POLICIES -->
+    <section id="policies" class="card" style="margin-top:16px;">
+      <h2>Policies</h2>
+
+      <h3>Affiliate Disclosure</h3>
+      <p class="muted small">
+        Some links on this site may be affiliate links. If you sign up through them, we may earn a commission.
+        This does not increase your cost. We do not guarantee any results.
+      </p>
+
+      <h3>Disclaimer</h3>
+      <p class="muted small">
+        This content is for educational purposes only and is not financial advice.
+        Trading involves risk, and you may lose part or all of your capital. Do your own research and consult
+        a licensed professional if needed.
+      </p>
+
+      <h3>Privacy Policy (Short)</h3>
+      <p class="muted small">
+        We may use basic analytics to understand site usage. We do not sell personal data.
+        If you contact us via email, we only use your information to respond to your request.
+      </p>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="card" style="margin-top:16px;">
+      <h2>Contact</h2>
+      <p class="muted">
+        Email: <a href="mailto:youremail@example.com">youremail@example.com</a>
+      </p>
+      <p class="small">
+        Tip: For higher trust later, use a real domain email (e.g., support@yourdomain.com).
+      </p>
+    </section>
+
+    <footer>
+      <div class="divider"></div>
+      <div class="footLinks">
+        <a href="#learn">Learn</a>
+        <a href="#steps">Start</a>
+        <a href="#india">India Keywords</a>
+        <a href="#policies">Policies</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <p class="small" style="margin-top:10px;">© <span id="y"></span> ForexBasics India • Educational only</p>
+    </footer>
+
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
