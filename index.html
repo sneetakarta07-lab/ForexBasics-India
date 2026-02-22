@@ -7,7 +7,14 @@
   <meta name="description" content="A complete beginner-friendly forex trading guide for India: how forex works, key terms, risk management, demo practice, strategies, mistakes to avoid, and safe next steps. Educational only." />
   <meta name="robots" content="index,follow" />
 
-  <!-- NOTE: Add your GA4 script here later (before closing </head>) -->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZKTSVGK2K"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8ZKTSVGK2K', { 'anonymize_ip': true });
+  </script>
 
   <style>
     :root{
@@ -20,9 +27,10 @@
       --accent:#6ee7ff;
       --accent2:#22c55e;
       --warn:#fbbf24;
-      --shadow: 0 20px 80px rgba(0,0,0,.55);
+      --shadow: 0 18px 60px rgba(0,0,0,.55);
     }
     *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", Helvetica, sans-serif;
@@ -35,31 +43,43 @@
     }
     a{color:var(--accent); text-decoration:none}
     a:hover{text-decoration:underline}
-    .container{max-width:1100px; margin:0 auto; padding:22px}
+
+    .container{max-width:1100px; margin:0 auto; padding:18px}
     .topbar{
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(12px);
+      background: rgba(7,11,24,.72);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .topbarInner{
       display:flex; align-items:center; justify-content:space-between;
-      gap:14px; padding:12px 0 18px;
+      gap:12px; padding:12px 18px;
+      max-width:1100px; margin:0 auto;
     }
-    .brand{
-      display:flex; align-items:center; gap:12px;
-      font-weight:800; letter-spacing:.2px;
-    }
+    .brand{display:flex; align-items:center; gap:10px; font-weight:800}
     .mark{
-      width:38px; height:38px; border-radius:12px;
+      width:34px; height:34px; border-radius:12px;
       background: linear-gradient(135deg, rgba(110,231,255,1), rgba(124,58,237,1));
-      box-shadow: 0 14px 40px rgba(110,231,255,.18);
+      box-shadow: 0 14px 40px rgba(110,231,255,.16);
+      flex: 0 0 auto;
     }
-    .brand small{display:block; font-weight:600; color:var(--muted); margin-top:2px}
-    .nav{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
+    .brandText{line-height:1.2}
+    .brandText small{display:block; font-weight:600; color:var(--muted); margin-top:3px; font-size:12px}
+
+    .nav{display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end}
     .chip{
       font-size:13px; color:var(--muted);
-      padding:8px 10px; border:1px solid var(--border);
+      padding:8px 10px; border:1px solid rgba(255,255,255,.10);
       border-radius:999px; background: rgba(255,255,255,.03);
+      white-space:nowrap;
     }
 
     .hero{
       display:grid; grid-template-columns: 1.05fr .95fr;
-      gap:16px; align-items:stretch;
+      gap:14px; align-items:stretch;
+      margin-top:14px;
     }
     .card{
       background: var(--surface);
@@ -67,13 +87,13 @@
       border-radius:18px;
       padding:18px;
       box-shadow: var(--shadow);
-      backdrop-filter: blur(10px);
     }
     h1{margin:0 0 10px; font-size:34px; line-height:1.22}
     h2{margin:0 0 10px; font-size:22px}
     h3{margin:18px 0 10px; font-size:18px}
     p{margin:0 0 12px}
     .muted{color:var(--muted)}
+
     .risk{
       border-left:4px solid var(--warn);
       background: rgba(251,191,36,.10);
@@ -82,16 +102,18 @@
       color:#ffe9ad;
       margin:14px 0 0;
     }
+
     .ctaRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
       padding:12px 14px;
       border-radius:14px;
-      border:1px solid var(--border);
+      border:1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.04);
       color:var(--text);
       font-weight:800;
       min-width: 190px;
+      cursor:pointer;
     }
     .btnPrimary{
       background: linear-gradient(135deg, rgba(34,197,94,1), rgba(16,185,129,1));
@@ -99,14 +121,14 @@
       color:#06210f;
     }
     .btn:hover{transform: translateY(-1px); transition: .15s ease}
+
     .list{margin:0; padding-left:18px; color:var(--muted)}
     .list li{margin:7px 0}
-    .divider{height:1px; background: var(--border); margin:16px 0}
+    .divider{height:1px; background: rgba(255,255,255,.10); margin:16px 0}
 
-    /* Hero image */
     .heroImage{
       border-radius:16px;
-      border:1px solid var(--border);
+      border:1px solid rgba(255,255,255,.10);
       background: var(--surface2);
       overflow:hidden;
       height: 240px;
@@ -120,19 +142,14 @@
       object-fit:cover;
       display:block;
     }
-
-    /* Article */
-    .toc{
-      border:1px solid var(--border);
+    .subtle{
+      padding:10px 12px;
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:14px;
       background: rgba(255,255,255,.03);
-      border-radius:16px;
-      padding:14px;
+      color:var(--muted);
+      font-size:14px;
     }
-    .toc a{color:var(--text)}
-    .toc a span{color:var(--muted)}
-    .toc ul{margin:8px 0 0; padding-left:18px; color:var(--muted)}
-    .toc li{margin:6px 0}
-
     .callout{
       border:1px solid rgba(110,231,255,.22);
       background: rgba(110,231,255,.08);
@@ -141,21 +158,21 @@
       color:#dbeafe;
       margin:14px 0;
     }
-    .subtle{
-      padding:10px 12px;
-      border:1px solid var(--border);
-      border-radius:14px;
+    .toc{
+      border:1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.03);
-      color:var(--muted);
-      font-size:14px;
+      border-radius:16px;
+      padding:14px;
     }
+    .toc ul{margin:8px 0 0; padding-left:18px; color:var(--muted)}
+    .toc li{margin:6px 0}
     .table{
       width:100%;
       border-collapse:separate;
       border-spacing:0;
       overflow:hidden;
       border-radius:14px;
-      border:1px solid var(--border);
+      border:1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.03);
       margin:12px 0;
     }
@@ -173,29 +190,34 @@
     .footLinks{display:flex; gap:12px; flex-wrap:wrap}
     .small{font-size:13px; color:var(--muted)}
 
+    /* MOBILE IMPROVEMENTS */
     @media (max-width: 920px){
+      .container{padding:14px}
+      .topbarInner{padding:10px 14px}
       .hero{grid-template-columns:1fr}
-      h1{font-size:28px}
-      .btn{min-width: 160px}
-      .heroImage{height: 210px;}
+      h1{font-size:26px}
+      h2{font-size:20px}
+      .card{padding:16px}
+      .btn{min-width: 100%}
+      .heroImage{height: 200px;}
+      .nav{gap:6px}
+      .chip{font-size:12px; padding:7px 9px}
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
 
-    <!-- TOP -->
-    <div class="topbar">
+  <!-- STICKY HEADER -->
+  <div class="topbar">
+    <div class="topbarInner">
       <div class="brand">
         <div class="mark" aria-hidden="true"></div>
-        <div>
+        <div class="brandText">
           <div>ForexBasics India</div>
           <small>Beginner Education • 2026</small>
         </div>
       </div>
-
-      <!-- Minimal nav (clean) -->
       <div class="nav">
         <a class="chip" href="#guide">Guide</a>
         <a class="chip" href="#toc">Contents</a>
@@ -203,14 +225,17 @@
         <a class="chip" href="#contact">Contact</a>
       </div>
     </div>
+  </div>
+
+  <div class="container">
 
     <!-- HERO -->
     <section class="hero" id="guide">
       <div class="card">
         <h1>Forex Trading for Beginners in India (2026)</h1>
         <p class="muted">
-          This is a complete, beginner-friendly guide that explains how forex trading works, the most important terms,
-          how to practice on a demo account, and how to think about risk. It’s written for learning — not for hype.
+          This guide explains how forex works, key terms, risk management, how to practice on a demo account,
+          and how beginners can build a safer learning process. Educational only — no profit claims.
         </p>
 
         <div class="risk">
@@ -222,82 +247,89 @@
           <a class="btn btnPrimary"
              href="https://track.deriv.be/_DnTT5wlXlxM5TVC3w-F7AGNd7ZgqdRLk/1/"
              target="_blank"
-             rel="nofollow noopener">
+             rel="nofollow noopener"
+             data-cta="hero_primary"
+             onclick="trackAffiliateClick(event);">
              Open Demo / Official Platform
           </a>
-          <a class="btn" href="#toc">Read the Full Guide</a>
+          <a class="btn"
+             href="#toc"
+             data-cta="hero_toc"
+             onclick="trackInternalClick('read_contents');">
+             Read the Full Guide
+          </a>
         </div>
 
         <p class="small" style="margin-top:10px;">
           Affiliate disclosure: We may earn a commission if you sign up through our link — at no extra cost to you.
         </p>
+
+        <div class="subtle" style="margin-top:12px;">
+          Beginner tip: focus on learning and demo practice first. Keep position sizes small and use stop-loss.
+        </div>
       </div>
 
       <aside class="card">
-        <h2>Forex Learning Snapshot</h2>
+        <h2>Learning Snapshot</h2>
         <div class="heroImage">
-          <!-- Your image file must be here: assets/img/forex-hero.jpg -->
-          <img src="assets/img/forex-hero.jpg" alt="Trading desk with charts (educational illustration)" loading="lazy">
+          <img src="assets/img/forex-hero.jpg" alt="Forex learning and demo trading setup" loading="lazy">
         </div>
 
         <div class="divider"></div>
 
-        <h3>Beginner checklist (before you trade)</h3>
+        <h3>Before you start</h3>
         <ul class="list">
-          <li>I understand the basics: pairs, spread, pip, leverage</li>
-          <li>I will start with a demo account and a trading journal</li>
-          <li>I will use stop-loss and risk limits on every trade</li>
-          <li>I will avoid “guaranteed profit” claims</li>
-          <li>I will only use money I can afford to lose</li>
+          <li>Understand basics (pairs, spread, pip, leverage)</li>
+          <li>Practice on demo first and keep a simple journal</li>
+          <li>Use stop-loss and risk limits on every trade</li>
+          <li>Avoid “guaranteed profit” claims</li>
+          <li>Only use money you can afford to lose</li>
         </ul>
-
-        <div class="subtle" style="margin-top:12px;">
-          If you’re new, your first goal should be skill-building and consistency — not big position sizes.
-        </div>
       </aside>
     </section>
 
-    <!-- ARTICLE -->
+    <!-- CONTENTS -->
     <section class="card" style="margin-top:16px;" id="toc">
       <h2>Table of Contents</h2>
       <div class="toc">
-        <p class="muted" style="margin-bottom:6px;">Jump to any section:</p>
         <ul>
-          <li><a href="#what-is-forex"><strong>1)</strong> What is Forex Trading? <span>(simple explanation)</span></a></li>
-          <li><a href="#how-it-works"><strong>2)</strong> How Forex Works <span>(pairs, quotes, pip, spread)</span></a></li>
-          <li><a href="#key-terms"><strong>3)</strong> Key Forex Terms Beginners Must Know</a></li>
-          <li><a href="#risk"><strong>4)</strong> Risk Management <span>(the most important part)</span></a></li>
-          <li><a href="#demo"><strong>5)</strong> How to Start With a Demo Account (step-by-step)</a></li>
-          <li><a href="#strategy"><strong>6)</strong> Simple Beginner Strategies <span>(no magic, just structure)</span></a></li>
-          <li><a href="#mistakes"><strong>7)</strong> Common Mistakes That Cause Losses</a></li>
-          <li><a href="#india"><strong>8)</strong> Forex in India: practical notes (educational)</a></li>
-          <li><a href="#platform"><strong>9)</strong> Choosing a Platform: what to check</a></li>
-          <li><a href="#faq"><strong>10)</strong> FAQ</a></li>
+          <li><a href="#what-is-forex">1) What is Forex Trading?</a></li>
+          <li><a href="#how-it-works">2) How Forex Works (Pairs, Quotes, Pip, Spread)</a></li>
+          <li><a href="#key-terms">3) Key Forex Terms Beginners Must Know</a></li>
+          <li><a href="#risk">4) Risk Management (Most Important Part)</a></li>
+          <li><a href="#demo">5) Starting With a Demo Account (Step-by-Step)</a></li>
+          <li><a href="#strategy">6) Simple Beginner Strategies (Structure, Not Magic)</a></li>
+          <li><a href="#mistakes">7) Common Mistakes That Cause Losses</a></li>
+          <li><a href="#india">8) Forex in India: Practical Notes (Educational)</a></li>
+          <li><a href="#platform">9) Choosing a Platform: What to Check</a></li>
+          <li><a href="#faq">10) FAQ</a></li>
         </ul>
       </div>
     </section>
 
+    <!-- ARTICLE (Long-form, policy-safe) -->
     <section class="card" style="margin-top:16px;">
       <h2 id="what-is-forex">1) What is Forex Trading?</h2>
       <p>
-        Forex stands for <strong>foreign exchange</strong>. It’s the global market where currencies are exchanged — for example,
-        Indian Rupees (INR), US Dollars (USD), Euros (EUR), British Pounds (GBP), Japanese Yen (JPY), and many more.
-        Forex trading happens 24 hours a day (Monday to Friday) because different financial centers open and close across time zones.
+        Forex stands for <strong>foreign exchange</strong>. It’s the global market where currencies are exchanged and priced against each other.
+        When people talk about “forex trading,” they usually mean trading currency pairs such as EUR/USD, GBP/USD, USD/JPY, or other major and minor pairs.
+        The market runs 24 hours a day (Monday to Friday) because trading activity moves across different time zones.
       </p>
       <p>
-        When beginners hear “forex trading”, they often imagine something complicated. But the basic idea is simple:
-        you trade one currency against another in a <strong>currency pair</strong>. If you believe one currency may strengthen relative
-        to the other, you buy; if you believe it may weaken, you sell.
+        The basic idea is simple: you compare one currency to another. If you believe the first currency may strengthen relative to the second,
+        you buy the pair; if you believe it may weaken, you sell. Beginners should remember that markets can move unpredictably and
+        there is no guaranteed outcome.
       </p>
+
       <div class="callout">
-        <strong>Beginner mindset:</strong> Forex is not a “quick money” machine. Treat it like a skill:
-        learn the basics, practice on demo, and focus on risk control.
+        <strong>Learning first is safer:</strong> Start by understanding the basics and practicing on a demo account.
+        Avoid any claims of guaranteed profits or “sure-shot” results — they are not realistic in trading.
       </div>
 
       <h2 id="how-it-works">2) How Forex Works (Pairs, Quotes, Pip, Spread)</h2>
       <p>
-        A forex trade uses a pair like <strong>EUR/USD</strong> or <strong>GBP/USD</strong>. The first currency is the <strong>base currency</strong>
-        and the second is the <strong>quote currency</strong>. The price tells you how much of the quote currency you need to buy 1 unit of the base currency.
+        Forex prices are shown as a pair. The first currency is called the <strong>base</strong> and the second is the <strong>quote</strong>.
+        For example, EUR/USD tells you how many US dollars are needed to buy 1 euro.
       </p>
 
       <table class="table" aria-label="Forex pair explanation">
@@ -319,35 +351,27 @@
         </tr>
       </table>
 
-      <h3>Pips (small price movements)</h3>
+      <h3>Pips</h3>
       <p>
-        A <strong>pip</strong> is a small unit used to measure price movements in forex. Many major pairs quote to 4 decimal places.
-        For example, moving from 1.0900 to 1.0905 is a 5-pip move. (Some pairs and platforms use 5 decimals; your platform will show the exact format.)
+        A <strong>pip</strong> is a small unit used to measure price movements. Many pairs quote to 4 decimal places.
+        A move from 1.0900 to 1.0905 is a 5-pip move. Some platforms use fractional pips (5 decimals) — your platform display will show the format.
       </p>
 
-      <h3>Spread (your initial cost)</h3>
+      <h3>Spread</h3>
       <p>
-        The <strong>spread</strong> is the difference between the “buy” price and the “sell” price. It’s a cost of trading.
-        Lower spreads generally mean lower transaction costs, especially if you trade frequently.
+        The <strong>spread</strong> is the difference between the buy and sell price. This is part of the trading cost.
+        Lower spreads can reduce costs, especially if you trade frequently.
       </p>
 
-      <h3>Leverage (powerful but risky)</h3>
+      <h3>Leverage</h3>
       <p>
-        <strong>Leverage</strong> allows you to control a larger position with a smaller amount of capital (margin).
-        Leverage can amplify gains <em>and</em> losses. For beginners, leverage is one of the biggest reasons people lose money quickly,
-        because it makes losses grow faster than expected.
+        <strong>Leverage</strong> allows you to control a larger position with a smaller amount of capital (margin). Leverage can amplify gains and losses.
+        This is why beginners should use caution, keep position sizes small, and practice risk management.
       </p>
 
-      <div class="subtle">
-        Beginner tip: If you don’t fully understand leverage, keep it low and focus on learning risk management first.
-      </div>
-    </section>
-
-    <section class="card" style="margin-top:16px;">
       <h2 id="key-terms">3) Key Forex Terms Beginners Must Know</h2>
       <p>
-        Before you place your first real trade, make sure you understand these core terms. Most beginner confusion comes from
-        not knowing what the platform is actually showing.
+        Understanding platform terms reduces mistakes. Here are the basics most beginners should learn before going live.
       </p>
 
       <table class="table" aria-label="Key forex terms">
@@ -357,239 +381,119 @@
         </tr>
         <tr>
           <td><strong>Lot size</strong></td>
-          <td>Trade size. Larger lots = bigger exposure. Beginners should start small.</td>
+          <td>Trade size. Bigger lots = bigger exposure. Beginners should start small.</td>
         </tr>
         <tr>
           <td><strong>Margin</strong></td>
-          <td>The amount your platform sets aside to open a leveraged trade.</td>
+          <td>Capital set aside to open a leveraged position.</td>
         </tr>
         <tr>
           <td><strong>Stop-loss (SL)</strong></td>
-          <td>A protective order that limits your loss if price moves against you.</td>
+          <td>Protective order to limit loss if price moves against you.</td>
         </tr>
         <tr>
           <td><strong>Take-profit (TP)</strong></td>
-          <td>A target order that closes the trade when your goal is reached.</td>
+          <td>Target order to close the trade when your goal is reached.</td>
         </tr>
         <tr>
           <td><strong>Volatility</strong></td>
-          <td>How fast and how much price moves. High volatility = higher risk.</td>
+          <td>How fast price moves. High volatility means higher risk.</td>
         </tr>
         <tr>
           <td><strong>Liquidity</strong></td>
-          <td>How easily you can buy/sell. Higher liquidity usually means tighter spreads.</td>
+          <td>Ease of trading. Higher liquidity often means tighter spreads.</td>
         </tr>
       </table>
 
-      <h3>Market sessions (why time matters)</h3>
+      <h2 id="risk">4) Risk Management (Most Important Part)</h2>
       <p>
-        Forex moves differently depending on the time of day. The market tends to be more active during major sessions
-        like London and New York. More activity can mean more opportunity — but also faster losses if you trade without a plan.
+        Risk management is the foundation of responsible trading. Even a good strategy can fail if risk is not controlled.
+        Beginners typically lose money due to oversized positions, no stop-loss, or emotional decisions.
       </p>
 
-      <div class="callout">
-        <strong>Rule:</strong> Don’t trade just because the market is open. Trade when your setup is clear and your risk is defined.
-      </div>
-    </section>
-
-    <section class="card" style="margin-top:16px;">
-      <h2 id="risk">4) Risk Management (The Most Important Part)</h2>
+      <h3>Risk per trade</h3>
       <p>
-        If you only remember one thing from this guide, remember this:
-        <strong>risk management matters more than strategy</strong>.
-        A beginner can have a decent strategy and still lose money if they use oversized positions, no stop-loss, and emotional decisions.
+        This is the amount you are willing to lose if your trade goes wrong. Many disciplined traders keep this low.
+        The exact number depends on your situation, but the concept is simple: keep losses small enough to continue learning.
       </p>
 
-      <h3>What is “risk per trade”?</h3>
+      <h3>Stop-loss is a safety tool</h3>
       <p>
-        Risk per trade is how much you are willing to lose on a single trade if it goes wrong.
-        Many disciplined traders keep this small (for example, around 1% of their account or less).
-        This approach helps you survive losing streaks — because losses are normal in trading.
+        A stop-loss helps limit losses when the market moves against you. Without it, losses can become uncontrolled.
+        In forex, price can move quickly during news or volatility.
       </p>
 
-      <h3>Stop-loss is not optional</h3>
+      <h2 id="demo">5) Starting With a Demo Account (Step-by-Step)</h2>
       <p>
-        A stop-loss is a protection tool. Without it, one bad trade can damage your account.
-        Beginners often skip stop-loss because they “hope” the market will come back.
-        Hope is not a trading plan.
+        A demo account lets you practice with virtual funds. This is ideal for learning how order types work and how spreads behave.
+        Demo practice is not a guarantee of real results, but it helps beginners learn mechanics and discipline.
       </p>
 
-      <h3>Position sizing (how beginners blow accounts)</h3>
-      <p>
-        Position sizing means choosing the right trade size based on your stop-loss distance and your maximum acceptable risk.
-        When position size is too large, even small price movements can cause big losses.
-      </p>
-
-      <table class="table" aria-label="Risk checklist">
-        <tr>
-          <th>Good habit</th>
-          <th>Why it helps</th>
-        </tr>
-        <tr>
-          <td><strong>Use small positions</strong></td>
-          <td>Gives you time to learn without dangerous drawdowns.</td>
-        </tr>
-        <tr>
-          <td><strong>Set stop-loss every trade</strong></td>
-          <td>Limits damage when you’re wrong (you will be wrong sometimes).</td>
-        </tr>
-        <tr>
-          <td><strong>Avoid revenge trading</strong></td>
-          <td>Chasing losses usually creates bigger losses.</td>
-        </tr>
-        <tr>
-          <td><strong>Keep a journal</strong></td>
-          <td>Improves your decisions by tracking what works and what doesn’t.</td>
-        </tr>
-      </table>
-
-      <div class="subtle">
-        Educational reminder: No strategy guarantees wins. The goal is a process that controls risk and improves over time.
-      </div>
-    </section>
-
-    <section class="card" style="margin-top:16px;">
-      <h2 id="demo">5) How to Start With a Demo Account (Step-by-Step)</h2>
-      <p>
-        A <strong>demo account</strong> lets you practice trading with virtual funds. This is the safest way to learn how forex platforms work
-        and test basic strategies. Treat demo trading seriously: use realistic position sizes and write down your decisions.
-      </p>
-
-      <h3>Step 1: Open a demo account</h3>
-      <p>
-        Choose a platform that offers demo access. Use the demo environment to learn order types (market, limit, stop),
-        place stop-loss and take-profit, and understand spreads and fees.
-      </p>
-
-      <h3>Step 2: Pick one simple pair</h3>
-      <p>
-        Beginners often jump between many pairs and get confused. Start with one or two popular pairs and focus on understanding
-        how they move during different times.
-      </p>
-
-      <h3>Step 3: Use a simple plan</h3>
-      <p>
-        Your plan can be basic, such as:
-        trade only in the direction of the overall trend, use clear support/resistance levels, and keep risk per trade small.
-        The goal is not to find a perfect strategy — it’s to build discipline.
-      </p>
-
-      <h3>Step 4: Journal every trade</h3>
       <ul class="list">
-        <li>Why did you enter?</li>
-        <li>Where was your stop-loss and why?</li>
-        <li>What was your target and why?</li>
-        <li>Did you follow your rules?</li>
-        <li>What would you do differently next time?</li>
+        <li><strong>Step 1:</strong> Open a demo account and explore the platform (charts, orders, stop-loss, take-profit).</li>
+        <li><strong>Step 2:</strong> Start with one or two pairs to reduce confusion.</li>
+        <li><strong>Step 3:</strong> Use a simple plan and write a short journal after each trade.</li>
+        <li><strong>Step 4:</strong> Review your journal weekly to see what you did well and what needs improvement.</li>
       </ul>
 
       <div class="ctaRow" style="margin-top:14px;">
         <a class="btn btnPrimary"
            href="https://track.deriv.be/_DnTT5wlXlxM5TVC3w-F7AGNd7ZgqdRLk/1/"
            target="_blank"
-           rel="nofollow noopener">
+           rel="nofollow noopener"
+           data-cta="article_demo"
+           onclick="trackAffiliateClick(event);">
            Start Demo Practice
         </a>
-        <a class="btn" href="#platform">What to check in a platform</a>
       </div>
-    </section>
 
-    <section class="card" style="margin-top:16px;">
       <h2 id="strategy">6) Simple Beginner Strategies (Structure, Not Magic)</h2>
       <p>
-        Many beginners search for “the best forex strategy.” The reality is:
-        even good strategies lose sometimes. A beginner strategy should be:
-        simple, easy to follow, and focused on risk control.
+        Beginners should keep strategies simple. The goal is to follow a repeatable process, not to chase perfect predictions.
+        Here are three educational examples:
       </p>
 
-      <h3>Strategy A: Trend + Pullback</h3>
+      <h3>Trend + pullback</h3>
       <p>
-        Identify the overall trend on a higher timeframe (for example, the direction price has been moving consistently),
-        then wait for a pullback to a logical level (like a previous support/resistance area).
-        Enter only when price shows signs of continuing the trend.
+        Identify a trend, wait for a pullback to a logical level, then enter only when price shows signs of continuing the trend.
+        Always define risk before you enter.
       </p>
 
-      <h3>Strategy B: Support and Resistance (range awareness)</h3>
+      <h3>Support and resistance</h3>
       <p>
-        Price often reacts around certain levels where buyers/sellers previously appeared.
-        Beginners can mark simple support and resistance zones and wait for price reaction.
-        Don’t force trades—wait for clear behavior.
+        Mark key levels where price previously reacted. Wait for a clear reaction and avoid forcing trades.
       </p>
 
-      <h3>Strategy C: News awareness (risk-first)</h3>
+      <h3>News awareness</h3>
       <p>
-        Major news events can cause fast moves and slippage. Beginners often lose money by trading during unpredictable spikes.
-        A simple approach is to avoid trading around major scheduled events until you gain experience.
+        Major news can cause sharp moves. Beginners can reduce risk by avoiding trades around high-impact events.
       </p>
 
-      <div class="callout">
-        <strong>Important:</strong> Strategies are educational examples. They do not guarantee outcomes.
-        Always use a stop-loss and keep position size small.
-      </div>
-    </section>
-
-    <section class="card" style="margin-top:16px;">
       <h2 id="mistakes">7) Common Mistakes That Cause Losses</h2>
       <p>
-        Most beginner losses come from behavior — not from “bad charts.”
-        If you avoid the mistakes below, your learning curve becomes much smoother.
-      </p>
-
-      <h3>1) Overleveraging</h3>
-      <p>
-        Using too much leverage can wipe out an account quickly. Beginners often underestimate how fast losses grow with leverage.
-        Start small and think in terms of risk per trade, not “how much profit can I make.”
-      </p>
-
-      <h3>2) No stop-loss</h3>
-      <p>
-        Without a stop-loss, one trade can turn into a big uncontrolled loss. Stop-loss is a safety belt.
-      </p>
-
-      <h3>3) Overtrading</h3>
-      <p>
-        Trading too often (especially after losses) usually leads to impulsive decisions.
-        Instead, set limits: for example, a maximum number of trades per day.
-      </p>
-
-      <h3>4) Copying signals without understanding</h3>
-      <p>
-        Signals can create dependency. If you don’t understand why a trade is taken, you can’t manage it properly.
-        Build your own process gradually.
-      </p>
-
-      <h3>5) Unrealistic expectations</h3>
-      <p>
-        Trading is uncertain. Anyone promising guaranteed returns is not being realistic.
-        Your job is to manage risk and keep learning.
-      </p>
-    </section>
-
-    <section class="card" style="margin-top:16px;">
-      <h2 id="india">8) Forex in India: Practical Notes (Educational)</h2>
-      <p>
-        Beginners in India often ask: “Is forex legal in India?” This topic can be complex and can change over time.
-        This page is <strong>not legal advice</strong>. If you need legal certainty, consult official regulations and a qualified professional.
-      </p>
-      <p>
-        In practical terms, you should be careful about:
+        Most beginner losses come from behavior. Avoid these common mistakes:
       </p>
       <ul class="list">
-        <li>Understanding what instrument you are trading (forex spot vs derivatives/CFDs)</li>
-        <li>Understanding the platform’s product list and terms</li>
-        <li>Using proper risk warnings and avoiding unrealistic claims</li>
-        <li>Following local rules for payments, verification, and compliance</li>
+        <li><strong>Overleveraging:</strong> using too much leverage or too big a position.</li>
+        <li><strong>No stop-loss:</strong> leaving trades unprotected.</li>
+        <li><strong>Overtrading:</strong> taking too many trades without a clear plan.</li>
+        <li><strong>Chasing losses:</strong> revenge trading after a loss.</li>
+        <li><strong>Unrealistic expectations:</strong> believing in guaranteed outcomes.</li>
       </ul>
 
-      <div class="subtle">
-        Safe approach: focus on education first, practice on demo, and only proceed if you understand the risks and the platform terms.
-      </div>
-    </section>
-
-    <section class="card" style="margin-top:16px;">
-      <h2 id="platform">9) Choosing a Platform: What Beginners Should Check</h2>
+      <h2 id="india">8) Forex in India: Practical Notes (Educational)</h2>
       <p>
-        A good platform makes learning easier. Before you open a real account, check:
+        Beginners often ask about the rules around forex in India. This page is not legal advice, and regulations can change.
+        If you need legal certainty, consult official sources and a qualified professional.
+      </p>
+      <p>
+        A safe approach is to focus on education, use demo practice first, and read the platform’s terms carefully before making decisions.
+      </p>
+
+      <h2 id="platform">9) Choosing a Platform: What to Check</h2>
+      <p>
+        Before using any platform, check for demo availability, clear fees, risk controls, and customer support.
+        Choose tools that help you learn responsibly.
       </p>
 
       <table class="table" aria-label="Platform checklist">
@@ -598,24 +502,20 @@
           <th>Why it matters</th>
         </tr>
         <tr>
-          <td><strong>Demo account availability</strong></td>
-          <td>Lets you practice safely before risking real funds.</td>
+          <td><strong>Demo access</strong></td>
+          <td>Practice safely before risking real funds.</td>
         </tr>
         <tr>
-          <td><strong>Transparent fees/spreads</strong></td>
-          <td>Helps you understand real trading costs.</td>
+          <td><strong>Clear costs</strong></td>
+          <td>Understand spreads/fees to avoid surprises.</td>
         </tr>
         <tr>
-          <td><strong>Risk controls</strong> (stop-loss, limits)</td>
-          <td>Prevents oversized losses and supports discipline.</td>
+          <td><strong>Risk controls</strong></td>
+          <td>Stop-loss, limits, and clear order types support discipline.</td>
         </tr>
         <tr>
-          <td><strong>Clear terms & support</strong></td>
-          <td>Beginners need guidance and clear product explanations.</td>
-        </tr>
-        <tr>
-          <td><strong>Security & verification</strong></td>
-          <td>Helps protect accounts and reduces fraud risk.</td>
+          <td><strong>Support</strong></td>
+          <td>Beginners need help and clear documentation.</td>
         </tr>
       </table>
 
@@ -623,36 +523,41 @@
         <a class="btn btnPrimary"
            href="https://track.deriv.be/_DnTT5wlXlxM5TVC3w-F7AGNd7ZgqdRLk/1/"
            target="_blank"
-           rel="nofollow noopener">
+           rel="nofollow noopener"
+           data-cta="article_platform"
+           onclick="trackAffiliateClick(event);">
            Explore Demo (Official)
         </a>
-        <a class="btn" href="#faq">Read FAQs</a>
       </div>
-    </section>
 
-    <section class="card" style="margin-top:16px;" id="faq">
-      <h2>10) FAQ (Beginners)</h2>
-
-      <h3>Is forex trading safe for beginners?</h3>
+      <h2 id="faq">10) FAQ</h2>
+      <h3>Is forex safe for beginners?</h3>
       <p class="muted">
-        It can be risky, especially with leverage. Beginners should start with education, use a demo account, and keep risk small.
+        Forex can be risky, especially with leverage. Start with education, demo practice, and strict risk rules.
       </p>
 
-      <h3>Can anyone guarantee daily profits?</h3>
+      <h3>Can anyone guarantee profits?</h3>
       <p class="muted">
-        No. Legitimate trading always involves uncertainty. Avoid anyone claiming guaranteed returns.
+        No. Trading outcomes are uncertain. Avoid anyone promising guaranteed returns.
       </p>
 
-      <h3>How long should I practice on demo?</h3>
+      <h3>How long should I use a demo account?</h3>
       <p class="muted">
-        Many beginners benefit from at least 1–2 weeks of focused demo practice, plus journaling.
-        Some people take longer — that’s normal.
+        Many beginners benefit from 1–2 weeks of focused demo practice and journaling. Some take longer, which is normal.
       </p>
 
-      <h3>What’s a realistic goal for a beginner?</h3>
-      <p class="muted">
-        A realistic goal is to build consistent habits: risk control, following a plan, and learning from a journal — not chasing big wins.
-      </p>
+      <div class="divider"></div>
+
+      <div class="ctaRow">
+        <a class="btn btnPrimary"
+           href="https://track.deriv.be/_DnTT5wlXlxM5TVC3w-F7AGNd7ZgqdRLk/1/"
+           target="_blank"
+           rel="nofollow noopener"
+           data-cta="faq_cta"
+           onclick="trackAffiliateClick(event);">
+           Open Demo / Official Platform
+        </a>
+      </div>
     </section>
 
     <!-- POLICIES -->
@@ -685,9 +590,7 @@
       <p class="muted">
         Email: <a href="mailto:youremail@example.com">youremail@example.com</a>
       </p>
-      <p class="small">
-        Tip: For higher trust later, use a real domain email (e.g., support@yourdomain.com).
-      </p>
+      <p class="small">Use a real support email for trust (e.g., support@forexbasicsindia.com).</p>
     </section>
 
     <footer>
@@ -704,7 +607,41 @@
   </div>
 
   <script>
+    // Year
     document.getElementById("y").textContent = new Date().getFullYear();
+
+    // Track outbound affiliate clicks (SAFE conversion)
+    function trackAffiliateClick(e){
+      try {
+        var el = e.currentTarget || e.target;
+        var label = (el && el.getAttribute) ? (el.getAttribute('data-cta') || 'cta') : 'cta';
+
+        // Send GA4 event
+        gtag('event', 'affiliate_click', {
+          event_category: 'outbound',
+          event_label: 'deriv_' + label
+        });
+      } catch (err) {
+        // fail silently
+      }
+    }
+
+    // Optional: track internal navigation clicks (not a conversion)
+    function trackInternalClick(label){
+      try {
+        gtag('event', 'internal_click', {
+          event_category: 'engagement',
+          event_label: label
+        });
+      } catch (err) {}
+    }
   </script>
 </body>
 </html>
+
+  
+     
+
+    
+
+    
